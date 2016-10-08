@@ -6,4 +6,9 @@ describe 'sign up user' do
     expect(page).to have_content 'Email'
     expect(page).to have_button 'Log in'
   end
+
+  it 'should take you to the homescreen' do
+    user_sign_up
+    expect(page).to have_content "Photos"
+  end
 end
