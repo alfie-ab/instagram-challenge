@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
 
+before_action :authenticate_user!
+
   def index
     # @photos = Photo.order('created_at')
     # redirect_to photos_path
