@@ -6,4 +6,10 @@ describe 'photo feed' do
     user_sign_up
     expect(page).to have_content
   end
+
+  it 'should allow user to post a new photo' do
+    user_sign_up
+    visit '/photos/new'
+    expect(page).to have_content "Upload Photo"
+  end
 end
