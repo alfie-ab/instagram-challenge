@@ -12,8 +12,8 @@ describe 'sign up user' do
     expect(page).to have_content "Photos"
   end
 
-  xit 'should allow user to log out' do
-    visit '/'
-    expect(page).to have_content "Log out"
+  it 'should allow user to log out' do
+    user_sign_up
+    expect(page).to have_content "Sign out"
   end
 end
