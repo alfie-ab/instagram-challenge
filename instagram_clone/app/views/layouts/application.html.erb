@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Simple Uploader', root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Photos', root_path %></li>
+            <li><%= link_to 'Upload Your Photo', new_photo_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   <head>
     <title>InstagramClone</title>
     <%= csrf_meta_tags %>
@@ -7,10 +20,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
   <% if user_signed_in? %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <% end %>
   <body>
     <%= yield %>
+  </div>
   </body>
 </html>
